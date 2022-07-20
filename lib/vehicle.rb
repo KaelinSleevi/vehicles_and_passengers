@@ -25,10 +25,8 @@ class Vehicle
   end
 
   def num_adults
-    adults = []
-
-    adults.find_all do |adult|
-      adults << adult?
+    passengers.find_all do |passenger|
+      passenger.adult?
     end.count
   end
 end
