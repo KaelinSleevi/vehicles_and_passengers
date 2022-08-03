@@ -2,22 +2,27 @@ class Park
   attr_reader :name,
               :price,
               :vehicles,
-              :passengers
+              :passengers,
+              :charged
 
   def initialize(name, price)
     @name = name
     @price = price
     @vehicles = []
-    @passengers = []
+    @charged = 0
   end
 
   def add_vehicle(vehicle)
     @vehicles << vehicle
   end
 
-  def adds_passenger
-    vehicle.passengers.find_all do |passenger|
-      @passengers << passenger
+  def charge(vehicle)
+   @vehicles.each do |vehicle|
+      vehicle.num_adults * @price
     end
+  end
+
+  def revenue
+    @charged
   end
 end
